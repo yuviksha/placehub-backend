@@ -1,7 +1,5 @@
-package com.example.placementhub.controller;
+package com.placementhub.placementhub;
 
-import com.example.placementhub.model.Job;
-import com.example.placementhub.repository.JobRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +9,8 @@ import java.util.List;
 @RequestMapping("/api/jobs")
 @CrossOrigin(origins = {
     "http://localhost:5173",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "https://placehub-frontend.vercel.app"
 })
 public class JobController {
 
