@@ -1,3 +1,4 @@
+
 package com.placementhub.placementhub;
 
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,8 @@ import java.util.Optional;
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = {
     "http://localhost:5173",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "https://placehub-frontend.vercel.app"
 })
 public class StudentController {
 
@@ -27,7 +29,8 @@ public class StudentController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody Map<String, String> data) {
+    public ResponseEntity<?> register(
+            @RequestBody Map<String, String> data) {
 
         String name = data.get("name");
         String email = data.get("email");
@@ -52,7 +55,8 @@ public class StudentController {
 
         if (studentRepository.existsByEmailIgnoreCase(email)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(
-                Map.of("message", "An account with this email already exists.")
+                Map.of("message",
+                    "An account with this email already exists.")
             );
         }
 
@@ -75,7 +79,8 @@ public class StudentController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Map<String, String> data) {
+    public ResponseEntity<?> login(
+            @RequestBody Map<String, String> data) {
 
         String email = data.get("email");
         String password = data.get("password");
@@ -110,3 +115,4 @@ public class StudentController {
         );
     }
 }
+  
