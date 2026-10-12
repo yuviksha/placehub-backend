@@ -1,8 +1,6 @@
 
 package com.placementhub.placementhub;
 
-import com.placementhub.placementhub.model.Job;
-import com.placementhub.placementhub.repository.JobRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
