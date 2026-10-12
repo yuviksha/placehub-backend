@@ -1,7 +1,8 @@
-package com.example.placementhub.controller;
 
-import com.example.placementhub.model.Job;
-import com.example.placementhub.repository.JobRepository;
+package com.placementhub.placementhub;
+
+import com.placementhub.placementhub.model.Job;
+import com.placementhub.placementhub.repository.JobRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
