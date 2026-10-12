@@ -1,3 +1,4 @@
+
 package com.placementhub.placementhub;
 
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,8 @@ import java.util.Set;
 @RequestMapping("/api/applications")
 @CrossOrigin(origins = {
     "http://localhost:5173",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "https://placehub-frontend.vercel.app"
 })
 public class ApplicationController {
 
@@ -33,7 +35,6 @@ public class ApplicationController {
         this.jobRepository = jobRepository;
     }
 
-    // Submit an application
     @PostMapping
     public ResponseEntity<?> applyForJob(
             @RequestBody Map<String, Object> request) {
@@ -104,7 +105,6 @@ public class ApplicationController {
         );
     }
 
-    // View applications for one student
     @GetMapping
     public List<Application> getApplications(
             @RequestParam String email) {
@@ -112,13 +112,11 @@ public class ApplicationController {
             .findByStudentEmailIgnoreCase(email.trim());
     }
 
-    // Admin: view all applications
     @GetMapping("/all")
     public List<Application> getAllApplications() {
         return applicationRepository.findAll();
     }
 
-    // Admin: update an application's status
     @PatchMapping("/{id}/status")
     public ResponseEntity<?> updateApplicationStatus(
             @PathVariable Long id,
